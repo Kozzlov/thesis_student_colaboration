@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+    {% block head %}
+        <title>Project creation template</title>
+    {% endblock %}
+    {% block body %}
+        <section>
+            <label>Title:</label><br>
+            <input type="text" id="project_title" name="project_title"><br>
+            <label>Overview:</label><br>
+            <input type="text" id="project_title" name="project_title"><br>
+            <label>Full description:</label><br>
+            <input type="text" id="project_full_description" name="project_full_description"><br>
+        </section>
+        <section>
+            <label>Required participants:</label><br>
+            <select id="team">
+                <option value="small team" selected>2-3</option>
+                <option value="middle team">3-5</option>
+                <option value="big team">more than 5</option>
+            </select><br>
+        </section>
+        <section>
+            <label>Required skills:</label><br>
+            <select id="skills">
+                <option value="pytorch" selected>pytorch</option>
+                <option value="keras" selected>keras</option>
+                <option value="tensorflow" selected>tensorflow</option>
+                <option value="react" selected>react</option>
+                <option value="flask" selected>flask</option>
+                <option value="jango" selected>jango</option>
+                <option value="GCP" selected>GCP</option>
+                <option value="AWS" selected>AWS</option>
+                <option value="unity" selected>unity</option>
+                <option value="unreal engine" selected>unreal engine</option>
+                <option value="2D graphics" selected>2D graphics</option>
+                <option value="3D graphics" selected>3D graphics</option>
+                <option value="mathematics" selected>mathematics</option>
+                <option value="physics" selected>physics</option>
+                <option value="chemistry" selected>chemistry</option>
+                <option value="biology" selected>biology</option>
+            </select>
+        </section>
+        <section>
+             <button id="post_project_button">Post project</button>
+        </section>
+    {% endblock %}
+</html>

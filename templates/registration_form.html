@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+{% block head %}
+    <title>Registration</title>
+{% endblock %}
+{% block body %}
+    <section id="personal data">
+        <label>First name:</label><br>
+        <input type="text" id="first_name" name="first_name"><br>
+        <label>Last name:</label><br>
+        <input type="text" id="last_name" name="last_name"><br>
+        <label>User name:</label><br>
+        <input type="text" id="user_name" name="user_name"><br>
+        <label>User password:</label><br>
+        <input type="text" id="user_password" name="user_password"><br>
+        <label>User role</label>:</label><br>
+        <input type="text" id="user_role" name="user_role"><br>
+    </section>
+    <section id="education">
+        <label>University name:</label><br>
+        <input type="text" id="university_name" name="university_name"><br>
+        <label>University specialization:</label><br>
+        <input type="text" id="university_specialization" name="university_specialization"><br>
+    </section>
+    <section id="personal experience">
+        <label>List technologies/skills you like:</label><br>
+        <input type="text" id="user_interests_overview" name="user_interests_overview"><br>
+        <label>University specialization:</label><br>
+        <select id="skills">
+            <option value="pytorch" selected>pytorch</option>
+            <option value="keras" selected>keras</option>
+            <option value="tensorflow" selected>tensorflow</option>
+            <option value="react" selected>react</option>
+            <option value="flask" selected>flask</option>
+            <option value="jango" selected>jango</option>
+            <option value="GCP" selected>GCP</option>
+            <option value="AWS" selected>AWS</option>
+            <option value="unity" selected>unity</option>
+            <option value="unreal engine" selected>unreal engine</option>
+            <option value="2D graphics" selected>2D graphics</option>
+            <option value="3D graphics" selected>3D graphics</option>
+            <option value="mathematics" selected>mathematics</option>
+            <option value="physics" selected>physics</option>
+            <option value="chemistry" selected>chemistry</option>
+            <option value="biology" selected>biology</option>
+        </select>
+    </section>
+    <section id="submit">
+        <button id="register_button">Register</button>
+    </section>
+{% endblock %}
+</html>
