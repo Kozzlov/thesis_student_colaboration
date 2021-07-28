@@ -1,7 +1,5 @@
 USE mysql;
 
-USE mysql;
-
 create table education(university_id int primary key,
 					   university_name varchar(50),
 					   university_specialization varchar(20));
@@ -12,17 +10,13 @@ create table application_user(user_id int primary key,
 							  user_name varchar(20),
 							  user_password varchar(20),
                               user_role varchar(20));
-
-ALTER TABLE application_user
-ADD COLUMN user_interests_overview varchar(50) AFTER user_name;
-
                               
 create table connection(user_id int,  
 						conection_id int, 
                         primary key (user_id, conection_id),
                         constraint cCon1 foreign key connection(user_id) references application_user(user_id),
                         constraint cCon2 foreign key connection(conection_id) references application_user(user_id));
- 
+
 create table education_user(university_id int,
 							user_id int primary key,
 							foreign key education_user(user_id) references application_user(user_id),
@@ -108,30 +102,38 @@ values (1, 1),
        (2, 5),
        (3, 2),
        (3, 4);
-
-insert into skill (skill_id, skill_name, skill_type)
-values (1, 'pytorch', 'tech'),
-	   (2, 'keras', 'tech'),
-       (3, 'tensorflow', 'tech'),
-       (4, 'react', 'tech'),
-       (5, 'flask', 'tech'),
-       (6, 'jango', 'tech'),
-       (7, 'GCP ', 'tech'),
-       (8, 'AWS', 'tech'),
-       (9, 'unity', 'tech'),
-       (10, 'unreal engine', 'tech'),
-       (11, '2D graphics', 'tech'),
-       (12, '3D graphics', 'tech'),
-       (13, 'mathematics', 'strict science'),
-       (14, 'physics', 'strict science'),
-       (15, 'chemistry', 'strict science'),
-       (16, 'biology', 'strict science'),
-       (17, 'mathematics', 'strict science'),
-       (18, 'physics', 'strict science'),
-       (19, 'chemistry', 'strict science'),
-       (20, 'biology', 'strict science');
        
-insert into skill_user(skill_id, user_id)
-VALUES (1,1),
-       (6,5),
-       (6,3);              
+insert into project(project_id, project_title, project_overview, project_full_description, project_if_archived, project_arcivation_date,  project_author)       
+values (1,
+		'web app for student collaboration',
+		'application will help people with different skills create collaborative projects',
+        'We will require 2 developers and ux/ui designer, probably we may discuss detail aspects on a go.',
+        Null,
+        Null, 
+        1),  
+        (2,
+		'web application to learn sign language',
+		'application will help people to learn sign language with easy to use illustrations',
+        'We will require 2 developers and ux/ui designer, graphic designer and person with expirience in creating education plans',
+        Null,
+        Null, 
+        2);
+ 
+insert into project(project_id, project_title, project_overview, project_full_description, project_if_archived, project_arcivation_date,  project_author)       
+values (3,
+		'web ai gallery',
+		'application will help people to get familiar with AI via art',
+        'We will require 1 developers familiar with AI and CV, also we will require one artist as well.',
+        Null,
+        Null, 
+        4);
+
+insert into connection (user_id, conection_id)
+values (1,2),(1,3),(1,4);
+
+
+
+select project_title, project_overview from project order by rand() limit 3;
+select u.user_name, u.user_role, s.skill_name from application_user u join skill_user su on u.user_id = su.user_id join skill s on s.skill_id = su.skill_id order by rand() limit 3;
+SELECT u1.user_name FROM application_user u1 JOIN connection c ON u1.user_id = c.conection_id AND c.user_id = 1 ORDER BY u1.user_name limit 3;
+select user_name from application_user where user_id = 1;              
